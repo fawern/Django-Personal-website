@@ -38,19 +38,6 @@ def thriller(request):
 def emotional(request):
     return render(request, 'emotional.html', context={'writer' : Writer.objects.all()})
 
-# def writer_books(request, writer_name):
-#     formated_name = writer_name.replace('-', ' ').title()
-#     writer = get_object_or_404(Writer, writer_name = formated_name)
-#     books = Book.objects.filter(writer_name=writer)
-
-#     clean_books = []
-#     for book in books:
-#         soup = BeautifulSoup(book.book_context, 'html.parser')
-#         plain_text = soup.get_text(' ', strip=True)
-#         decoded_text = html.unescape(plain_text)
-#         clean_books.append((book, decoded_text))
-
-#     return render(request, 'books.html', {'books': clean_books})  
 def writer_books(request, writer_name):
     formatted_name = writer_name.replace('-', ' ').title()
     writer = get_object_or_404(Writer, writer_name=formatted_name)
