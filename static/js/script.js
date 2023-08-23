@@ -99,8 +99,8 @@ window.addEventListener("resize", Writers);
 
 const text =
   "itaplarla birlikte çıktığım sonsuz yolculukta, sizlere yol arkadaşlarımı tanıtmanın hazzını yaşıyor olacağım.";
-const typingSpeed = 60;
-const delayAfterChar = 60;
+const typingSpeed = 30;
+const delayAfterChar = 30;
 
 const typingTag = document.querySelector("#enterence-text");
 typingTag.textContent = "K";
