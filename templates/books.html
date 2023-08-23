@@ -1,0 +1,30 @@
+{% extends 'layout.html'%}
+<!--  -->
+{% block body %}
+<style>
+  .book-containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90%;
+    margin: 15px auto;
+    background-color: rgb(9, 30, 48);
+    color: rgb(116, 239, 239);
+    padding: 30px;
+    border-radius: 30px;
+    font-family: Microsoft Yi Baiti;
+    font-size: 20px;
+  }
+  .book-containers h2 {
+    color: brown;
+    font-family: Copperplate Gothic Light;
+  }
+</style>
+{% for book, cleaned_text in clean_books %}
+<div class="book-containers">
+  <div class="book">
+    <h2>{{ book.book_name }}</h2>
+    {{ cleaned_text }}
+  </div>
+</div>
+{% endfor %} {% endblock body %}

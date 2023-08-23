@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+<!--  -->
+
+{% block body %}
+<div class="main-wrtr-container">
+  {% for writer in writer %}
+  <!--  -->
+  {% if writer.writer_category == 'Korku-Gerilim' %}
+
+  <div class="wrtr-container">
+    <div
+      class="wrtr-img"
+      style="  
+          border-radius: 15px;background-image: url(../{{writer.writer_image}});
+          background-position: {{writer.writer_image_style}} "
+    ></div>
+    <div class="wrtr-bio">{{writer.writer_bio}}</div>
+    <div class="wrtr-content">{{writer.writer_name}}</div>
+    <div class="wrtr-ctgr">
+      <a href="{% url 'writer-books' writer.writer_name|slugify  %}">
+        <button class="wrtr-button" style="margin-top: 25px">Kitaplar</button>
+      </a>
+    </div>
+    <div class="wrtr-cat">{{writer.writer_category}}</div>
+  </div>
+  {% endif %}
+  <!--  -->
+  {% endfor %}
+  <br /><br /><br /><br /><br /><br />
+</div>
+{% endblock body%}
