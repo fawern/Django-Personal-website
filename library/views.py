@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
+
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 
 from .models import Writer
 from .models import Book
+
+from .forms import WriterForm
 
 from bs4 import BeautifulSoup
 import html
@@ -26,7 +30,6 @@ def dedective_books(request):
     return render(request, 'dedectivewriters.html',context= {'writer' : Writer.objects.all()})
 
 def self_improvement(request):
-    
     return render(request, 'selfdevwriters.html', context= {'writer' : Writer.objects.all()})
     
 def romantic(request):
@@ -37,6 +40,8 @@ def thriller(request):
 
 def emotional(request):
     return render(request, 'emotional.html', context={'writer' : Writer.objects.all()})
+
+
 
 def writer_books(request, writer_name):
     formatted_name = writer_name.replace('-', ' ').title()
@@ -51,3 +56,17 @@ def writer_books(request, writer_name):
         clean_books.append((book, decoded_text))
     
     return render(request, 'books.html', {'clean_books': clean_books})
+
+
+def add_writer(request):
+    if request.method == "POST":
+        form = WriterForm(request.POST, request.FILES)
+         
+        if form.is_valid():
+            form.save()
+            return redirect('writers')
+    else:
+        form = WriterForm()
+    return render(request, 'forms.html', {'form' : form})
+
+     

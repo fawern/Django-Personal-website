@@ -7,7 +7,7 @@ from .models import Book
 @admin.register(Writer)
 class WriterAdmin(admin.ModelAdmin):
 
-    prepopulated_fields = {"slug_writer_name" : ('writer_name',)}
+    prepopulated_fields = {"slug_writer_name" : ('writer_name',), 'slug_writer_category' : ('writer_category',)}
     list_display = ["writer_name", "writer_category"]
     list_display_links = ["writer_name"]
     list_filter = ["writer_name"]

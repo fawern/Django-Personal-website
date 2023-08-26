@@ -11,4 +11,5 @@ urlpatterns = [
     path('romantik-yazarlar', views.romantic, name='romantic'),
     path('korku-gerilim-yazarlar', views.thriller, name='thriller'),
     path('psikolojik-duygusal-yazarlar', views.emotional, name='emotional'),
-]
+    path('yazar-ekle', views.add_writer)
+]   

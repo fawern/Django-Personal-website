@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+<!--  -->
+
+{% block body %}
+<style>
+  .custom-file-upload label {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: #42a9c3;
+    cursor: pointer;
+  }
+
+  .custom-file-upload input[type="file"] {
+    display: none;
+  }
+</style>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <!--  -->
+  <div class="form-group">
+    <label for="{{ form.writer_name.id_for_label }}">Writer Name:</label>
+    {{ form.writer_name }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.writer_category.id_for_label }}">Book Name:</label>
+    {{ form.writer_category }}
+  </div>
+
+  <div class="form-group">
+    <label for="{{ form.writer_image.id_for_label }}">Writer Image:</label>
+    <div class="custom-file-upload">
+      <label for="{{ form.writer_image.id_for_label }}">
+        <span>Choose File</span>
+      </label>
+      <input
+        type="file"
+        name="{{ form.writer_image.name }}"
+        id="{{ form.writer_image.id_for_label }}"
+        accept="image/*"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="{{ form.writer_image_style.id_for_label }}"
+      >Book Context:</label
+    >
+    {{ form.writer_image_style }}
+  </div>
+  <div class="form-group">
+    <label for="{{ form.writer_bio.id_for_label }}">Book Context:</label>
+    {{ form.writer_bio }}
+  </div>
+
+  <button type="submit">Kaydet</button>
+</form>
+
+{% endblock %}
