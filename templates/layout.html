@@ -16,6 +16,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Sofia"
@@ -29,9 +30,14 @@
     <!-- navbar -->
     {% include "includes/navbar.html" %}
     <!-- body -->
+
     {% block body %} {% endblock body %}
     <!-- footer -->
     {% include "includes/footer.html" %}
     <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
